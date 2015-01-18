@@ -1,0 +1,300 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="http://bootswatch.com/cosmo/bootstrap.min.css">
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <title>Hackerspace Silesia</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style>
+            .head-bg {
+                background-color: black;
+                height: 200px;
+            }
+            .head-bg img {
+                padding-top: 20px;
+            }
+            body {
+                background-color: #DCDCDC;
+            }
+            header {
+                background-color: #FFFAFA;
+                border-bottom: 1px solid #C0C0C0;
+            }
+            footer {
+                background-color: #2f2f2f;
+                border-top: 1px solid black;
+                color: #DCDCDC;
+
+                width: 100%;
+                font-size: 80%;
+                padding-top: 5px;
+                margin-top: 15px;
+            }
+            footer .fa {
+                
+                float: left;
+            }
+            .fa {
+                padding-left: 5px;
+            }
+            .news {
+                font-size: 120%;
+            }
+            .news time {
+                font-weight: bold;
+                font-style: capitalize;
+                font-size: 70%;
+            }
+            .body {
+                /*remove in wp*/
+                display: none;
+            }
+            .well {
+                border: #ACACAC 1px solid;
+                border-radius: 5px;
+                background-color: #CCCCCC;
+                box-shadow: 0px 0px 5px #9C9C9C;
+                display: block;
+                height: 164px;
+            }
+            .gallery-row img {
+                width: 128px;
+                height: 128px;
+                border: #ACACAC 1px solid;
+                box-shadow: 0px 0px 5px #9C9C9C;
+            }
+            .contact-row {
+                text-align: center;
+            }
+        </style>
+        <script>
+            function ShowSite(name) {
+                //temp function - remove
+                var els = document.getElementsByClassName("body");
+                for(var i=0; i < els.length; i++)
+                    els[i].style.display = 'none';
+                document.getElementById("temp-" + name).style.display = 'block';
+            }
+        </script>
+    </head>
+    <body onload='ShowSite("about")'>
+        <div class='head-bg'>
+            <img src='logo.png' class='center-block' />
+        </div>
+        <header>
+            <div class="container">
+                <ul class="nav nav-pills pull-right row">
+                    <!--- plz normal links -->
+                    <li><a href='javascript:ShowSite("about")'>O nas</a></li>
+                    <li><a href='javascript:ShowSite("place")'>Miejsce</a></li>
+                    <li><a href='javascript:ShowSite("community")'>Społeczności</a></li>
+                    <li><a href='javascript:ShowSite("calendar")'>Kalendarz</a></li>
+                    <li><a href='javascript:ShowSite("gallery")'>Galeria</a></li>
+                    <li><a href='javascript:ShowSite("partners")'>Partnerzy</a></li>
+                    <li><a href='javascript:ShowSite("contact")'>Kontakt</a></li>
+                </ul>                      
+            </div>
+        </header>
+        <div class="container body" id='temp-about'>
+            <div class='row'>
+                <div class="col-sm-6">
+                    <h3 class='text-center'>O nas</h3>
+                    <p><strong>Hackerspace</strong> jest to społeczność kreatywnych ludzi z różnych obszarów zainteresowań związanych z technologiami, którzy spotykają się w wspólnym miejscu, gdzie mogą tworzyć, integrować się oraz realizować zwariowane projekty.</p>
+
+                    <p><strong>Hackerspace Silesia</strong> tworzą ludzie z całego województwa śląskiego i nie tylko. Jeżeli chcesz zobaczyć co robimy, oraz jak działamy to zapraszamy Ciebie na nasze czwartkowe spotkania o godzinie 18.00.</p>
+                </div>
+                <div class="col-sm-5 col-sm-offset-1">
+                    <h3 class='text-center'>Aktualności</h3>
+                    <ul class='news'>
+                        <li>
+                            <a href='http://pajacyk.pl'>
+                                <time>18 Dec 2014</time>
+                                Socek atakuje 2: ostateczna bitwa
+                            </a>
+                        </li>
+                        <li>
+                            <a href='http://pajacyk.pl'>
+                                <time>17 Dec 2014</time>
+                                Socek atakuje
+                            </a>
+                        </li>
+                        <li>
+                            <a href='http://pajacyk.pl'>
+                                <time>16 Dec 2014</time>
+                                Socek atakuje
+                            </a>
+                        </li>
+                        <li>
+                            <a href='http://pajacyk.pl'>
+                                <time>15 Dec 2014</time>
+                                Socek atakuje
+                            </a>
+                        </li>
+                    </ul>
+                </div>                
+            </div>
+        </div>
+        <div class="container body" id='temp-place'>
+            <div class='row'>
+                <div class="col-sm-12">
+                    <h3 class='text-center'>Miejsce</h3>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="col-sm-6">
+                    <p>Obecnie społeczność Hackerspace spotyka się co czwartki dzięki uprzejmości Biblioteki Śląskiej w Katowicach na <b>Ligonia 7/112.</b></p>
+                </div>
+                <div class="col-sm-6">
+                    <p>Trwają obecnie starania aby pozyskać lokal na Hackerspace z prawdziwego zdarzenia działający 24/7h. Możesz nam pomóc, przeczytaj powyżej o spotkaniu założycielskim Stowarzyszenia “Hackerspace Silesia”.</p>
+                    <p>(tutaj powinnien byc nie-firemarkowy tekst) nowy Lokal jest na <b>Ondraszka 17</b> również w Katowicach. Jest niestety w dość wczesnej fazie remontu.</p>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="col-sm-6">
+                    <iframe style="float:center; width:100%; min-height:400px; border: 1px solid #aaa; margin-top: 20px;" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=19.016175,50.252206,19.019979,50.254552&amp;layer=mapnik&amp;marker=50.25331,19.01792" frameborder="0"></iframe>
+                </div>
+                <div class="col-sm-6">
+                    <iframe style="float:center; width:100%; min-height:400px; border: 1px solid #aaa; margin-top: 20px;" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://www.openstreetmap.org/export/embed.html?bbox=18.989964723587036%2C50.26337315454736%2C18.998183012008667%2C50.26771439397775&amp;layer=mapnik"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="container body" id='temp-community'>
+            <div class='row'>
+                <div class="col-sm-12">
+                    <h3 class='text-center'>Społeczności</h3>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="col-sm-6 col-md-4 text-center">
+                    <a class="well" href="http://pysilesia.org/">
+                        <img src="pysilesia.png" alt="Pysilesia">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 text-center">
+                    <a class="well" href="https://www.facebook.com/meetjspl">
+                        <img src="meetjs.jpg" alt="meet.js">
+                    </a>
+                </div>
+                <div class="col-sm-6 col-md-4 text-center">
+                    <a class="well" href="http://??">
+                        <h3>Malinowy dżemik</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container body" id='temp-calendar'>
+            użyj wyobraźni :-)
+        </div>
+        <div class="container body" id='temp-gallery'>
+            <div class='row'>
+                <div class="col-sm-12">
+                    <h3 class='text-center'>Galeria</h3>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="col-sm-12">
+                    <h3>Event #1</h3>
+                </div>
+            </div>
+            <div class='row gallery-row'>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+            </div>
+            <div class='row'>
+                <div class="col-sm-12">
+                    <h3>Event #2</h3>
+                </div>
+            </div>
+            <div class='row gallery-row'>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+                <div class="col-sm-2">
+                    <img src='img.jpg' alt='IMG' />
+                </div>
+            </div>
+        </div>
+        <div class="container body" id='temp-partners'>
+            tylko to samo co co społecznosci - inne obrazki (i byc moze podpisy)
+        </div>
+        <div class="container body" id='temp-contact'>
+            <div class='row'>
+                <div class="col-sm-12">
+                    <h3 class='text-center'>Kontakt</h3>
+                </div>
+            </div>
+            <div class="row contact-row">
+                <div class="col-lg-4">
+                    <h4>Grupa dyskusyjna</h4>
+                    <h4><a href="https://lists.hackerspace.pl/pipermail/silesia/">Archiwum</a></h4>
+                    <h4><a href="https://lists.hackerspace.pl/mailman/listinfo/silesia">Zapisz się na listę</a></h4>
+                    <br>
+                </div>
+                <div class="col-lg-4">
+                    <h4>IRC</h4>
+                    <h4><a href="http://webchat.freenode.net/?channels=#hackerspace-silesia">#hackerspace-silesia</a></h4>
+                    <h4><a href="https://botbot.me/freenode/hackerspace-silesia/">Logi</a></h4>
+                    <br>
+                </div>
+                <div class="col-lg-4">
+                    <h4>GitHub</h4>
+                    <h4><a href="https://github.com/hackerspace-silesia/">github.com/hackerspace-silesia</a></h4>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class='text-center'>
+                        <a href="https://www.facebook.com/HackerspaceSilesia"><i class="fa fa-facebook fa-2x"></i></a>
+                        <a href="https://twitter.com/hs_silesia"><i class="fa fa-twitter fa-2x"></i></a>
+                        <a href="https://plus.google.com/105433210692287375139" rel="publisher"><i class="fa fa-google-plus fa-2x"></i></a>
+                        <a href="mailto:silesia@lists.hackerspace.pl"><i class="fa fa-envelope fa-2x"></i></a>
+                        <a href="http://silesia.hackerspace.pl/feed.xml"><i class="fa fa-rss fa-2x"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container text-right">
+                <div class="col-lg-12">
+                    <p>
+                        <a href="https://www.facebook.com/HackerspaceSilesia"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="https://twitter.com/hs_silesia"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="https://plus.google.com/105433210692287375139" rel="publisher"><i class="fa fa-google-plus fa-lg"></i></a>
+                        <a href="mailto:silesia@lists.hackerspace.pl"><i class="fa fa-envelope fa-lg"></i></a>
+                        <a href="http://silesia.hackerspace.pl/feed.xml"><i class="fa fa-rss fa-lg"></i></a>
+                        Created by hs-sil team | Bootstrap template
+                        <a href='http://bootswatch.com/'>bootswatch.com</a>
+                    </p>
+                </div>
+            </di>
+        </footer>
+    </body>
+</html>
