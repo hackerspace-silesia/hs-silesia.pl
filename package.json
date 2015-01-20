@@ -1,0 +1,33 @@
+{
+  "name": "hs-site-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-concat": "^2.4.3",
+    "gulp-less": "^2.0.1",
+    "gulp-minify-css": "^0.3.13",
+    "gulp-nunjucks-render": "^0.1.3",
+    "gulp-sourcemaps": "^1.3.0",
+    "gulp-uglify": "^1.0.2",
+    "gulp-uncss": "^0.5.2",
+    "wiredep": "^2.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Palid/hs-site-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Palid/hs-site-template/issues"
+  },
+  "homepage": "https://github.com/Palid/hs-site-template"
+}
