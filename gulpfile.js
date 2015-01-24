@@ -14,6 +14,8 @@ var uncss = require('gulp-uncss');
 var cssmin = require('gulp-minify-css');
 // Sitegen
 var nunjucksRender = require('gulp-nunjucks-render');
+var replace = require('gulp-replace');
+var rename = require('gulp-rename');
 // Autowire from bower
 var wiredep = require('wiredep').stream;
 
@@ -92,13 +94,24 @@ gulp.task('html', function() {
   .pipe(gulp.dest('./deploy'));
 });
 
+gulp.task('php', function() {
+  return gulp.src('./src/**/*.html')
+  .pipe(replace(/({% include ")/g, '<?php include (TEMPLATEPATH . "/'))
+  .pipe(replace(/( %})/g, '); ?>'))
+  .pipe(replace(/.html/g, '.php'))
+   .pipe(rename(function (path) {
+        path.extname = ".php";
+    }))
+   .pipe(gulp.dest('./deploy/php'));
+});
+
 gulp.task('watch', function () {
   gulp.watch('./src/**/*.js', ['scripts']);
-  gulp.watch('./src/**/*.html', ['html']);
+  gulp.watch('./src/**/*.html', ['html', 'php']);
   gulp.watch('./src/**/*.less', ['css']);
   gulp.watch('./src/assets/*.*', ['copy']);
 });
 
 
 
-gulp.task('default', ['copy', 'css', 'html', 'scripts', 'watch']);
+gulp.task('default', ['copy', 'css', 'html', 'php', 'scripts', 'watch']);
