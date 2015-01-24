@@ -121,7 +121,7 @@ add_action( 'after_setup_theme', 'twentyfifteen_setup' );
  *
  * @since Twenty Fifteen 1.0
  */
-function twentyfifteen_scripts() {
+// function twentyfifteen_scripts() {
   // Add custom fonts, used in the main stylesheet.
   // wp_enqueue_style( 'twentyfifteen-fonts', twentyfifteen_fonts_url(), array(), null );
 

@@ -2,7 +2,7 @@
   <head>
     <?php include (TEMPLATEPATH . "/templates/head.php"); ?>
     <?php wp_head() ?>
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="<?php echo TEMPLATEPATH . '/css/style.min.css' ?>">
   </head>
   <body  <?php body_class() ?> >
     <div class="head-bg">
@@ -15,6 +15,6 @@
     <?php include (TEMPLATEPATH . "/templates/footer.php"); ?>
     <?php include (TEMPLATEPATH . "/templates/loader.php"); ?>
     <?php wp_footer() ?>
-    <script src="js/scripts.min.js"></script>
+    <script src="<?php echo TEMPLATEPATH . '/js/scripts.min.js'?>"></script>
   </body>
 </html>
