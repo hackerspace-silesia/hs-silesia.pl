@@ -61,10 +61,8 @@ gulp.task('css', function () {
   return gulp.src([
       "./src/less/style.less",
     ])
-    .pipe(sourcemaps.init())
-    .pipe(less({
-      paths: [path.join(__dirname, 'less', 'includes')]
-    }))
+    // .pipe(sourcemaps.init())
+    .pipe(less())
     .pipe(autoprefixer({
       browsers: ['> 1%'],
       cascade: false
@@ -72,17 +70,17 @@ gulp.task('css', function () {
     // .pipe(uncss(UNCSS))
     .pipe(cssmin(CSS))
     .pipe(concat('style.min.css'))
-    .pipe(sourcemaps.write())
+    // .pipe(sourcemaps.write())
     .pipe(gulp.dest('./deploy/css'));
 });
 
 
 gulp.task('scripts', function () {
   return gulp.src(['./src/js/**/*.js'])
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
     .pipe(uglify(UGLIFY))
     .pipe(concat('scripts.min.js'))
-    .pipe(sourcemaps.write())
+    // .pipe(sourcemaps.write())
     .pipe(gulp.dest('./deploy/js'));
 });
 
@@ -97,7 +95,8 @@ gulp.task('html', function() {
 gulp.task('watch', function () {
   gulp.watch('./src/**/*.js', ['scripts']);
   gulp.watch('./src/**/*.html', ['html']);
-  gulp.watch('./src/less/*.less', ['css', 'copy']);
+  gulp.watch('./src/**/*.less', ['css']);
+  gulp.watch('./src/assets/*.*', ['copy']);
 });
 
 

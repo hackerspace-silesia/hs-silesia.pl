@@ -9,3 +9,5 @@ Instructions:
 * Type `bower install`
 * Start gulp compile-watch by typing `npm start`
 * Here you go, the site will be compiled in `deploy` directory!
+
+To look at the site, please setup any webserver (for example python's SimpleHTTPServer) on the whole directory and enter localhost:PORT/deploy dir. 
