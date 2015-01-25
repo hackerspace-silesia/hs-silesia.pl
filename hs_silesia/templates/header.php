@@ -4,8 +4,10 @@ IT SO RETARDED
 MY BRAIN PONY
 AND HURTS LOAD
 -->
-<div class="head-bg">
-  <img src="<?php echo get_template_directory_uri() . '/assets/logo.png' ?>" class="center-block" />
+<div class="head-bg magic-links">
+  <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+    <img src="<?php echo get_template_directory_uri() . '/assets/logo.png' ?>" class="center-block" />
+  </a>
 </div>
 <header>
   <div class="container">

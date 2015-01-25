@@ -13,6 +13,16 @@
 
     sections.first().fadeIn();
 
+    function centerElement(el) {
+      var $window = $(window);
+      var top = $window.scrollTop() * 2;
+      var left = $window.width() / 2;
+      el.css({
+        top: (top > 256 ? top : 256) + 'px',
+        left: (left > 0 ? left : 0) + 'px'
+      });
+    }
+
     function reloadThings() {
       // Bind click
       if (pushState) {
@@ -29,6 +39,7 @@
               if (lastHrefPart.search('#') === -1) {
                 isLoading = true;
                 loader.fadeIn();
+                centerElement($('.loader'));
                 window.history.pushState(stateObj, "", window.location.host !== lastHrefPart ? isTheLinkBeautiful ? '../' + lastHrefPart + '/' : lastHrefPart : '/');
                 contentMain.load(href + " #content-main>.section", function () {
                   loader.fadeOut();
