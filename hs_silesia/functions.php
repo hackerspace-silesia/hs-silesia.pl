@@ -1,6 +1,6 @@
 <?php
 /**
- * Twenty Fifteen functions and definitions
+ * Hackerspace Silesia functions and definitions
  *
  * Set up the theme and provides some helper functions, which are used in the
  * theme as custom template tags. Others are attached to action and filter
@@ -21,11 +21,11 @@
  * {@link https://codex.wordpress.org/Plugin_API}
  *
  * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
+ * @subpackage Hackerspace_Silesia
+ * @since Hackerspace Silesia 1.0
  */
 
-if ( ! function_exists( 'twentyfifteen_setup' ) ) :
+if ( ! function_exists( 'hs_silesia' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -33,9 +33,9 @@ if ( ! function_exists( 'twentyfifteen_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  *
- * @since Twenty Fifteen 1.0
+ * @since Hackerspace Silesia 1.0
  */
-function twentyfifteen_setup() {
+function hs_silesia() {
 
 
   // Add default posts and comments RSS feed links to head.
@@ -59,8 +59,8 @@ function twentyfifteen_setup() {
 
   // This theme uses wp_nav_menu() in two locations.
   register_nav_menus( array(
-    'primary' => __( 'Primary Menu',      'twentyfifteen' ),
-    'social'  => __( 'Social Links Menu', 'twentyfifteen' ),
+    'primary' => 'Primary Menu',
+    'social'  => 'Social Links Menu',
   ) );
 
   /*
@@ -81,8 +81,36 @@ function twentyfifteen_setup() {
   ) );
 
 }
-endif; // twentyfifteen_setup
-add_action( 'after_setup_theme', 'twentyfifteen_setup' );
+endif; // hs_silesia
+add_action( 'after_setup_theme', 'hs_silesia' );
+
+// function setupCss() {
+
+
+
+// }
+// add_action('wp_enqueue_style', 'setupCss');
+
+// function setupScripts() {
+  // wp_enqueue_scripts('jquery');
+  // wp_enqueue_scripts( 'magic-loader', );
+
+// }
+// add_action('wp_enqueue_scripts', 'setupScripts');
+
+function scriptsLoader() {
+  wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/bower_components/font-awesome/css/font-awesome.css');
+  wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bower_components/bootstrap/dist/css/bootstrap.css');
+  wp_enqueue_style( 'main', get_template_directory_uri() . '/css/style.min.css');
+
+    wp_register_script( 'jquery', get_template_directory_uri() . '/bower_components/jquery/dist/jquery.js');
+    wp_enqueue_script( 'jquery' );
+    wp_register_script('magic-loader', get_template_directory_uri() . '/js/scripts.min.js', array('jquery'));
+    wp_enqueue_script('magic-loader');
+}
+
+add_action('wp_enqueue_scripts', 'scriptsLoader');
+
 
 // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 // DO WE NEED IT?!
@@ -93,7 +121,7 @@ add_action( 'after_setup_theme', 'twentyfifteen_setup' );
 // /**
 //  * Register widget area.
 //  *
-//  * @since Twenty Fifteen 1.0
+//  * @since Hackerspace Silesia 1.0
 //  *
 //  * @link https://codex.wordpress.org/Function_Reference/register_sidebar
 //  */
@@ -119,7 +147,7 @@ add_action( 'after_setup_theme', 'twentyfifteen_setup' );
 /**
  * Enqueue scripts and styles.
  *
- * @since Twenty Fifteen 1.0
+ * @since Hackerspace Silesia 1.0
  */
 // function twentyfifteen_scripts() {
   // Add custom fonts, used in the main stylesheet.
@@ -160,7 +188,7 @@ add_action( 'after_setup_theme', 'twentyfifteen_setup' );
 // /**
 //  * Add featured image as background image to post navigation elements.
 //  *
-//  * @since Twenty Fifteen 1.0
+//  * @since Hackerspace Silesia 1.0
 //  *
 //  * @see wp_add_inline_style()
 //  */
@@ -202,7 +230,7 @@ add_action( 'after_setup_theme', 'twentyfifteen_setup' );
 // /**
 //  * Display descriptions in main navigation.
 //  *
-//  * @since Twenty Fifteen 1.0
+//  * @since Hackerspace Silesia 1.0
 //  *
 //  * @param string  $item_output The menu item output.
 //  * @param WP_Post $item        Menu item object.
@@ -222,7 +250,7 @@ add_action( 'after_setup_theme', 'twentyfifteen_setup' );
 // /**
 //  * Add a `screen-reader-text` class to the search form's submit button.
 //  *
-//  * @since Twenty Fifteen 1.0
+//  * @since Hackerspace Silesia 1.0
 //  *
 //  * @param string $html Search form HTML.
 //  * @return string Modified search form HTML.
@@ -231,3 +259,5 @@ add_action( 'after_setup_theme', 'twentyfifteen_setup' );
 //   return str_replace( 'class="search-submit"', 'class="search-submit screen-reader-text"', $html );
 // }
 // add_filter( 'get_search_form', 'twentyfifteen_search_form_modify' );
+
+

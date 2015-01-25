@@ -14,8 +14,6 @@ var uncss = require('gulp-uncss');
 var cssmin = require('gulp-minify-css');
 // Sitegen
 var nunjucksRender = require('gulp-nunjucks-render');
-var replace = require('gulp-replace');
-var rename = require('gulp-rename');
 // Autowire from bower
 var wiredep = require('wiredep').stream;
 
@@ -79,39 +77,39 @@ gulp.task('css', function () {
 
 gulp.task('scripts', function () {
   return gulp.src(['./src/js/**/*.js'])
-    // .pipe(sourcemaps.init())
+    .pipe(sourcemaps.init())
     .pipe(uglify(UGLIFY))
     .pipe(concat('scripts.min.js'))
-    // .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./deploy/js'));
 });
 
-gulp.task('html', function() {
+gulp.task('html', function () {
   nunjucksRender.nunjucks.configure(['./src/']);
   return gulp.src('./src/index.html')
-  .pipe(wiredep())
-  .pipe(nunjucksRender())
-  .pipe(gulp.dest('./deploy'));
-});
-
-gulp.task('php', function() {
-  return gulp.src('./src/**/*.html')
-  .pipe(replace(/({% include ")/g, '<?php include (TEMPLATEPATH . "/'))
-  .pipe(replace(/( %})/g, '); ?>'))
-  .pipe(replace(/.html/g, '.php'))
-   .pipe(rename(function (path) {
-        path.extname = ".php";
-    }))
-   .pipe(gulp.dest('./deploy/php'));
+    .pipe(wiredep())
+    .pipe(nunjucksRender())
+    .pipe(gulp.dest('./deploy'));
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./src/**/*.js', ['scripts']);
-  gulp.watch('./src/**/*.html', ['html', 'php']);
+  gulp.watch('./src/**/*.js', ['scripts', 'wordpress']);
+  gulp.watch('./src/**/*.html', ['html']);
   gulp.watch('./src/**/*.less', ['css']);
   gulp.watch('./src/assets/*.*', ['copy']);
 });
 
+gulp.task('wordpress', ['copy', 'css', 'html', 'scripts'], function () {
+  gulp.src('./src/assets/**/*.*')
+    .pipe(gulp.dest('./hs_silesia/assets'));
+
+  gulp.src('./deploy/js/**/*.js')
+    .pipe(gulp.dest('./hs_silesia/js'));
+
+  gulp.src('./deploy/css/**/*.css')
+    .pipe(gulp.dest('./hs_silesia/css'));
+});
 
 
-gulp.task('default', ['copy', 'css', 'html', 'php', 'scripts', 'watch']);
+
+gulp.task('default', ['copy', 'css', 'html', 'scripts', 'wordpress', 'watch']);
