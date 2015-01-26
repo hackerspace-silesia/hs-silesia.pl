@@ -8,10 +8,20 @@
  }
 .loader {
   background-image: url(../assets/loader-small.gif);
-  background-position: center center;
+  background-position: center top;
+  border-radius: 8px;
+  border: 2px solid pink;
   background-repeat: no-repeat;
-  .loaderUtil(128, 128);
+  .loaderUtil(128, 148);
+  span {
+    color: red;
+    width:  100%;
+    text-align: center;
+    bottom: 0px;
+    position: absolute;
+  }
 }
+
 .text-fa{
   margin-right:10px;
 }
