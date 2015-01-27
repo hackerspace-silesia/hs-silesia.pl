@@ -13,6 +13,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var uncss = require('gulp-uncss');
 var cssmin = require('gulp-minify-css');
 // Sitegen
+var prettify = require('gulp-prettify');
 var nunjucksRender = require('gulp-nunjucks-render');
 // Autowire from bower
 var wiredep = require('wiredep').stream;
@@ -52,6 +53,13 @@ var CSS = {
   noAdvanced: true
 };
 
+var nunjucksData = require('./util/load-directory.js')('./src/templates-data', {
+  currentDir: __dirname,
+  type: '.json',
+  recursive: true,
+  require: true,
+});
+
 gulp.task('copy', function () {
   gulp.src('./src/assets/**/*.*')
     .pipe(gulp.dest('./deploy/assets'));
@@ -86,9 +94,13 @@ gulp.task('scripts', function () {
 
 gulp.task('html', function () {
   nunjucksRender.nunjucks.configure(['./src/']);
-  return gulp.src('./src/index.html')
+  return gulp.src('./src/**/*.html')
     .pipe(wiredep())
-    .pipe(nunjucksRender())
+    .pipe(nunjucksRender(nunjucksData))
+    .pipe(prettify({
+      ident_size: 2,
+      indent_inner_html: true
+    }))
     .pipe(gulp.dest('./deploy'));
 });
 

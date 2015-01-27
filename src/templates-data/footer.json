@@ -1,0 +1,18 @@
+[{
+  "link": "https://www.facebook.com/HackerspaceSilesia",
+  "icon": "facebook"
+}, {
+  "link": "https://twitter.com/hs_silesia",
+  "icon": "twitter"
+}, {
+  "link": "https://plus.google.com/105433210692287375139",
+  "properties": {
+    "rel": "publisher"
+  }
+}, {
+  "link": "mailto:silesia@lists.hackerspace.pl",
+  "icon": "envelope"
+}, {
+  "link": "http://silesia.hackerspace.pl/feed.xml",
+  "icon": "rss"
+}]
