@@ -123,5 +123,4 @@ gulp.task('wordpress', ['copy', 'css', 'html', 'scripts'], function () {
 });
 
 
-
-gulp.task('default', ['copy', 'css', 'html', 'scripts', 'wordpress', 'watch']);
+gulp.task('default', ['copy', 'css', 'html', 'scripts', 'wordpress']);
