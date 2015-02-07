@@ -1,14 +1,9 @@
+{% import 'macros\macros.html' as macros %}
+
 <div class="col-sm-5 col-sm-offset-1">
   <h3 class='text-center'>Aktualności</h3>
   <ul class='news magic-links'>
-  {% for item in news %}
-    <li>
-      <a href="{{ item.link }} ">
-        <time>{{ item.time }}</time>
-        {{ item.text | truncate(50) }}
-      </a>
-    </li>
-  {% endfor %}
+    {{ macros.createNewsList(news) }}
   </ul>
 </div>
 

@@ -1,7 +1,12 @@
 "use strict";
 
+var PSEUDO_WORDPRESS_GEN = true;
+var SOURCEMAPS = false;
+
+var _ = require('lodash');
 // Global
 var gulp = require('gulp');
+var gulpIf = require('gulp-if');
 var path = require('path');
 var concat = require("gulp-concat");
 //JS
@@ -10,14 +15,15 @@ var sourcemaps = require('gulp-sourcemaps');
 // Styles
 var less = require('gulp-less');
 var autoprefixer = require('gulp-autoprefixer');
-var uncss = require('gulp-uncss');
 var cssmin = require('gulp-minify-css');
 // Sitegen
+var minifyHtml = require('gulp-minify-html');
 var prettify = require('gulp-prettify');
 var nunjucksRender = require('gulp-nunjucks-render');
 // Autowire from bower
 var wiredep = require('wiredep').stream;
-
+// Wordpress
+var batchReplace = require('gulp-batch-replace');
 
 var UGLIFY = {
   sequences: true, // join consecutive statemets with the “comma operator”
@@ -41,14 +47,6 @@ var UGLIFY = {
   global_defs: {} // global definitions
 };
 
-var UNCSS = {
-  html: ['./deploy/index.html'],
-  ignore: [
-    // /navbar-shrink/,
-    // /active/,
-  ]
-};
-
 var CSS = {
   noAdvanced: true
 };
@@ -69,38 +67,44 @@ gulp.task('css', function () {
   return gulp.src([
       "./src/less/style.less",
     ])
-    // .pipe(sourcemaps.init())
+    .pipe(gulpIf(SOURCEMAPS, sourcemaps.init()))
     .pipe(less())
     .pipe(autoprefixer({
       browsers: ['> 1%'],
       cascade: false
     }))
-    // .pipe(uncss(UNCSS))
     .pipe(cssmin(CSS))
     .pipe(concat('style.min.css'))
-    // .pipe(sourcemaps.write())
+    .pipe(gulpIf(SOURCEMAPS, sourcemaps.write()))
     .pipe(gulp.dest('./deploy/css'));
 });
 
 
 gulp.task('scripts', function () {
   return gulp.src(['./src/js/**/*.js'])
-    .pipe(sourcemaps.init())
+    .pipe(gulpIf(SOURCEMAPS, sourcemaps.init()))
     .pipe(uglify(UGLIFY))
     .pipe(concat('scripts.min.js'))
-    .pipe(sourcemaps.write())
+    .pipe(gulpIf(SOURCEMAPS, sourcemaps.write()))
     .pipe(gulp.dest('./deploy/js'));
 });
 
 gulp.task('html', function () {
   nunjucksRender.nunjucks.configure(['./src/']);
+  var jinja2wordpress = _.map(require('./jinja2wordpress.js'), function (item) {
+    return [item.from, item.to];
+  });
   return gulp.src('./src/**/*.html')
     .pipe(wiredep())
-    .pipe(nunjucksRender(nunjucksData))
-    .pipe(prettify({
+    .pipe(gulpIf(!PSEUDO_WORDPRESS_GEN, nunjucksRender(nunjucksData)))
+    .pipe(gulpIf(PSEUDO_WORDPRESS_GEN, minifyHtml({
+      quotes: true
+    })))
+    .pipe(gulpIf(PSEUDO_WORDPRESS_GEN, batchReplace(jinja2wordpress)))
+    .pipe(gulpIf(!PSEUDO_WORDPRESS_GEN, prettify({
       ident_size: 2,
       indent_inner_html: true
-    }))
+    })))
     .pipe(gulp.dest('./deploy'));
 });
 

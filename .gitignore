@@ -1,5 +1,6 @@
 node_modules
 bower_components
-.idea
 deploy
-*.zip
+.idea
+.log
+.zip
