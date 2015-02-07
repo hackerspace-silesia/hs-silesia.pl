@@ -9,6 +9,8 @@
                 <a href="http://silesia.hackerspace.pl/feed.xml"><i class="fa fa-rss fa-lg"></i></a>
                 Created by hs-sil team | Bootstrap template
                 <a href='http://bootswatch.com/'>bootswatch.com</a>
+		| site runs on
+		<a href='http://www.vultr.com/?ref=6819909'>www.vultr.com</a>
             </p>
         </div>
     </di>
