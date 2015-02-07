@@ -24,8 +24,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "bower install && gulp",
-    "test": "gulp wordpress"
+    "start": "gulp",
+    "compile": "gulp compile"
   },
   "repository": {
     "type": "git",

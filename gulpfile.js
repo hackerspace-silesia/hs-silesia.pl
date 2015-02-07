@@ -122,5 +122,7 @@ gulp.task('wordpress', ['copy', 'css', 'html', 'scripts'], function () {
     .pipe(gulp.dest('./hs_silesia/css'));
 });
 
+gulp.task('compile', ['copy', 'css', 'html', 'scripts', 'wordpress']);
 
-gulp.task('default', ['copy', 'css', 'html', 'scripts', 'wordpress']);
+
+gulp.task('default', ['compile', 'watch']);
