@@ -1,0 +1,15 @@
+/*
+ Theme Name:   Hackerspace silesia theme
+ Theme URI:    http://silesia.hackerspace.pl
+ Description:  Hackerspace silesia theme
+ Author:       Michal Wesoly
+ Author URI:   http://kozak127.eu
+ Template:     twentythirteen
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         Black, Brown, Orange, Tan, White, Yellow, Light, One Column, Two Columns, Right Sidebar, Fluid Layout, Responsive Layout, Custom Header, Custom Menu, Editor Style, Featured Images, Microformats, Post Formats, RTL Language Support, Sticky Post, Translation Ready, Accessibility Ready
+ Text Domain:  twenty-thirteen-child
+*/
+
+@import url("../twentythirteen/style.css");  
