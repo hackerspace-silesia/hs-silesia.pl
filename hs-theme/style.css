@@ -14,6 +14,37 @@
 
 @import url("../twentythirteen/style.css");  
 
+
+/**
+ * Basic controls
+ * ----------------------------------------------------------------------------
+ */
+
+body {
+	color: #141412;
+	line-height: 1.5;
+	margin: 0;
+}
+
+a {
+	color: #1A94CD;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #1A94CD;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:active,
+a:hover {
+	color: #1A94CD;
+	outline: 0;
+}
+
 .site-main {
     position: relative;
     background-color: #E9E9E9;
@@ -503,4 +534,81 @@ footer.entry-meta {
 
 .widget_calendar tbody .pad, .site-footer .widget_calendar tbody .pad {
 	background-color: transparent;
+}
+
+/**
+ * 7.0 Footer
+ * ----------------------------------------------------------------------------
+ */
+
+.site-footer {
+	background-color: #000;
+	color: #686758;
+	font-size: 14px;
+	text-align: center;
+}
+
+.site-footer .widget-area,
+.sidebar .site-footer {
+	text-align: left;
+}
+
+.site-footer a {
+	color: #686758;
+}
+
+.site-footer .sidebar-container {
+	background-color: #000;
+	padding: 20px 0;
+}
+
+.site-footer .widget-area {
+	margin: 0 auto;
+	max-width: 1040px;
+	width: 100%;
+}
+
+.sidebar .site-footer .widget-area {
+	max-width: 724px;
+	position: relative;
+	left: -158px;
+}
+
+.site-footer .widget {
+	background: transparent;
+	color: #fff;
+	float: left;
+	margin-right: 20px;
+	width: 245px;
+}
+
+.sidebar .site-footer .widget {
+	width: 228px;
+}
+
+.sidebar .site-footer .widget:nth-of-type(4),
+.sidebar .site-footer .widget:nth-of-type(3) {
+	margin-right: 0;
+}
+
+.site-footer .widget a {
+	color: #1473A0;
+}
+
+.site-footer .widget-title,
+.site-footer .widget-title a,
+.site-footer .wp-caption-text {
+	color: #fff;
+}
+
+.site-info {
+	margin: 0 auto;
+	max-width: 1040px;
+	padding: 30px 0;
+	width: 100%;
+}
+
+#wpstats {
+	display: block;
+	margin: -10px auto 0;
 }
