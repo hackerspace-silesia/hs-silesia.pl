@@ -3228,3 +3228,10 @@ footer.entry-meta {
 		color: #333;
 	}
 }
+
+    /* ======================= Full Width Page ===============*/
+
+    .entry-header-full, .entry-content-full {
+    margin: 0 auto;
+    max-width: 1040px;
+    }
