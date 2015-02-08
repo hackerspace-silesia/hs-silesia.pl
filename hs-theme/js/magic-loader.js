@@ -3,8 +3,8 @@
 (function (window, $) {
   $('document').ready(function () {
     var main = $('#main');
-    var magicLinks = $('.magic-links a');
-
+    var magicLinks = $('.magic-links a, .widget_recent_entries');
+    var milkyWay = $('.milky-way');
     var loader = $('.milky-way--holder');
     var isLoading = false;
     var stateObj = {};
@@ -26,9 +26,11 @@
       // Bind click
       if (pushState) {
         magicLinks.each(function () {
-          var item = $(this);
+          var item = $(this),
+            doc = $(document);
           item.off('click');
           item.on('click', function (event) {
+            milkyWay.width(doc.width()).height(doc.height());
             var href = this.href;
             event.preventDefault();
             if (!isLoading) {
@@ -43,7 +45,7 @@
                 main.load(href + " #main", function () {
                   loader.fadeOut();
                   isLoading = false;
-                  magicLinks = $('.magic-links a');
+                  magicLinks = $('.magic-links a, .widget_recent_entries a');
                   main = $('#main');
                   reloadThings();
                 });
