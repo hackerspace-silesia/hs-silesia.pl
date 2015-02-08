@@ -1589,7 +1589,7 @@ footer.entry-meta {
 .format-quote .entry-content a,
 .format-quote .entry-meta a,
 .format-quote .linked {
-	color: #e63f2a;
+	color: #1A94CD;
 }
 
 .format-quote .entry-content cite a {
@@ -1934,7 +1934,7 @@ footer.entry-meta {
 }
 
 .paging-navigation .meta-nav {
-	background-color: #e63f2a;
+	background-color: #1A94CD;
 	border-radius: 50%;
 	color: #fff;
 	display: inline-block;
