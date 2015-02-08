@@ -431,6 +431,103 @@ footer.entry-meta {
 }
 
 /**
+ * 5.7 Post/Paging Navigation
+ * ----------------------------------------------------------------------------
+ */
+
+.navigation .nav-previous {
+	float: left;
+}
+
+.navigation .nav-next {
+	float: right;
+}
+
+.navigation a {
+	color: #1473A0;
+}
+
+.navigation a:hover {
+	color: #1473A0;
+	text-decoration: none;
+}
+
+.paging-navigation {
+	background-color: #e8e5ce;
+	padding: 40px 0;
+}
+
+.paging-navigation .nav-links {
+	margin: 0 auto;
+	max-width: 604px;
+	width: 100%;
+}
+
+.sidebar .paging-navigation .nav-links {
+	max-width: 1040px;
+	padding: 0 376px 0 60px;
+}
+
+.paging-navigation .nav-next {
+	padding: 13px 0;
+}
+
+.paging-navigation a {
+	font-size: 22px;
+	font-style: italic;
+	font-weight: 300;
+}
+
+.paging-navigation .meta-nav {
+	background-color: #e63f2a;
+	border-radius: 50%;
+	color: #fff;
+	display: inline-block;
+	font-size: 26px;
+	padding: 3px 0 8px;
+	text-align: center;
+	width: 50px;
+}
+
+.paging-navigation .nav-previous .meta-nav {
+	margin-right: 10px;
+	padding: 17px 0 23px;
+	width: 80px;
+}
+
+.paging-navigation .nav-next .meta-nav {
+	margin-left: 10px;
+}
+
+.paging-navigation a:hover .meta-nav {
+	background-color: #ea9629;
+	text-decoration: none;
+}
+
+.post-navigation {
+	background-color: #fff;
+	color: #ca3c08;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: 300;
+	padding: 20px 0;
+}
+
+.post-navigation .nav-links {
+	margin: 0 auto;
+	max-width: 1040px;
+}
+
+.sidebar .post-navigation .nav-links {
+	padding: 0 376px 0 60px;
+}
+
+.post-navigation a[rel="next"] {
+	float: right;
+	text-align: right;
+}
+
+/**
  * 5.9 Archives
  * ----------------------------------------------------------------------------
  */
