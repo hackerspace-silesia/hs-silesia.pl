@@ -1,7 +1,7 @@
 "use strict";
 
-(function (window, $) {
-  $('document').ready(function () {
+(function (document, window, $) {
+  $(document).ready(function () {
     var main = $('#main');
     var magicLinks = $('.magic-links a, .widget_recent_entries');
     var milkyWay = $('.milky-way');
@@ -22,6 +22,25 @@
       });
     }
 
+    function getPushStateURL(splittedHref) {
+      var link = document.location.toString().split('/');
+      if (splittedHref[splittedHref.length - 1] === '') splittedHref.pop();
+      if (link[link.length - 1] === '') link.pop();
+      var generatedLink = '';
+      for (var i = 0; i < link.length; i++) {
+        if (splittedHref[i] !== link[i]) {
+          generatedLink = generatedLink + '../';
+        }
+      }
+      return generatedLink + (splittedHref[splittedHref.length - 1] === window.location.host ? '' : splittedHref[splittedHref.length - 1]);
+    }
+
+    function colorMenu() {
+      var classes = 'current-menu-item current_page_item';
+      $('.magic-links li').removeClass(classes);
+      $('a[href="' + document.location + '/"]').addClass(classes);
+    }
+
     function reloadThings() {
       // Bind click
       if (pushState) {
@@ -34,22 +53,18 @@
             var href = this.href;
             event.preventDefault();
             if (!isLoading) {
-              var splitHref = href.split('/'),
-                isTheLinkBeautiful = splitHref[splitHref.length - 1] === '',
-                lastHrefPart = !isTheLinkBeautiful ? splitHref[splitHref.length - 1] : splitHref[splitHref.length - 2];
-              if (lastHrefPart.search('#') === -1) {
-                isLoading = true;
-                loader.fadeIn();
-                centerElement($('.loader'));
-                window.history.pushState(stateObj, "", window.location.host !== lastHrefPart ? isTheLinkBeautiful ? '../' + lastHrefPart + '/' : lastHrefPart : '/');
-                main.load(href + " #main", function () {
-                  loader.fadeOut();
-                  isLoading = false;
-                  magicLinks = $('.magic-links a, .widget_recent_entries a');
-                  main = $('#main');
-                  reloadThings();
-                });
-              }
+              isLoading = true;
+              loader.fadeIn();
+              centerElement($('.loader'));
+              window.history.pushState(stateObj, "", getPushStateURL(href.split('/')));
+              main.load(href + " #main", function () {
+                loader.fadeOut();
+                isLoading = false;
+                magicLinks = $('.magic-links a, .widget_recent_entries a');
+                main = $('#main');
+                reloadThings();
+                colorMenu();
+              });
             }
           });
         });
@@ -58,4 +73,4 @@
     reloadThings();
   });
 
-})(window, jQuery);
+})(document, window, jQuery);
