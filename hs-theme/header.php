@@ -35,9 +35,9 @@
 		// Wordpress Theme Prevent Widget Overlap
 		// by Ben Newton (BN Freelance - www.bnewton.co.uk)
 		// Prevent any widgets which overlap the footer from displaying
-		 
+
 		// Made for and tested in twentythirteen although likely can be used in others
-		 
+
 		jQuery(document).ready(function($){
 		  // Okay let's set the elements we don't want overlapping
 		  postNav = $('nav.post-navigation');
@@ -45,29 +45,29 @@
 		  colophon = $('#colophon');
 		  comments = $('#comments');
 		  respond = $('#respond');
-		  
+
 		  // Now let's check if they exist on the page and if they do, let's get
 		  // their position from the top of the page - this is the offset().top
-		  
+
 		  // get post navigation top offset
 		  if (postNav.length) { postNavFromTop = postNav.offset().top; }
 		  // get page navigation top offset
 		  if (pageNav.length) { pageNavFromTop = pageNav.offset().top; }
-		    
+
 		  // get footer section top offset
 		  if (colophon.length) { colophonFromTop = colophon.offset().top; }
-		  
+
 		  // get comment section top offset
 		  if (comments.length) { commentsFromTop = comments.offset().top; }
 		  // get respond section top offset
 		  if (respond.length) { respondFromTop = respond.offset().top; }
-		  
+
 		  // get all sidebar widgets in array
 		  widgets = $('.site-main .sidebar-container .widget');
-		  
+
 		  // does widget overlap? true = yes | false = no
 		  function widgetOverlaps(i) {
-		  
+
 		    // check the distance to the top of the page from the very bottom of the element
 		    var calculation = ($(widgets[i]).offset().top)+($(widgets[i]).height());
 		    // check if the widget distance from top is greater than (X) section
@@ -85,7 +85,7 @@
 		      return false; // widget does not overlap anything!
 		    }
 		  }
-		  function checkWidgets() {  
+		  function checkWidgets() {
 		    // cycle each widget in array and check if widget overlaps
 		    for (i=0; i < widgets.length; i++) {
 		      // if widget overlaps returns true

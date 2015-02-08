@@ -951,7 +951,7 @@ ul.nav-menu .focus > ul,
 	margin: 0 auto;
 	max-width: 1600px;
 	width: 100%;
-	background-color: #FFF; 
+	background-color: #FFF;
 }
 
 .site-header .search-form {
@@ -3235,3 +3235,10 @@ footer.entry-meta {
     margin: 0 auto;
     max-width: 1040px;
     }
+
+/* LOADER */
+
+.milky-way--holder{position:absolute;width:100%;height:100%;top:0;left:0}
+.milky-way{opacity:.8;background-color:#000;position:absolute;width:100%;height:100%;top:0;left:0}
+.loader{background-image:url(../assets/loader-small.gif);background-position:center top;border-radius:8px;border:2px solid pink;background-repeat:no-repeat;background-color:#fff;width:128;height:148;top:50%;left:50%;margin-left:-64;margin-top:-74;position:absolute}
+.loader span{color:red;width:100%;text-align:center;bottom:0;position:absolute}.

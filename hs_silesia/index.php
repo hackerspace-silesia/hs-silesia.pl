@@ -1,1 +1,0 @@
-<?php include (TEMPLATEPATH . "/pages/page-about.php"); ?>
