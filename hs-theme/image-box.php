@@ -24,19 +24,17 @@ get_header(); ?>
 					<div class="entry-content-full">
 						<?php the_content(); ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) );
-		$child_posts = types_child_posts('image-link');
-		foreach ($child_posts as $child_post) {
-		    $title = $child_post->fields['location'];
-		    $url = $child_post->field['link'];
-		    $image = $child_post->field['image'];
+		                $child_posts = types_child_posts('image-link-group');
+		                foreach ($child_posts as $child_post) {
+		                    $title = $child_post->fields['title'];
+		                    $url = $child_post->fields['link'];
+		                    $image = $child_post->fields['image'];
 
-		    echo "<a href='$url' />";
-		    if ($title) echo "<h3>$title</h3>";
-		    if ($image) echo "<img src='$image' />";
-		    echo $child_post->post_title; echo $child_post->fields['location'];
-		    echo "</a>";
-		}
-						?>
+		                    echo "<a class='image-box' href='$url' />";
+		                    if ($title) echo "<h3>$title</h3>";
+		                    if ($image) echo "<img src='$image' />";
+		                    echo "</a>";
+		                } ?>
 
 					</div><!-- .entry-content -->
 

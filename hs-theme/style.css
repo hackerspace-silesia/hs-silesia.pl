@@ -3276,3 +3276,17 @@ footer.entry-meta {
   bottom: 0;
   position: absolute;
 }
+
+.image-box {
+    background-color: #DDD;
+    width: 280px;
+    display: block;
+    float:  left;
+    height: 128px;
+    padding: 25px;
+    margin: 15px;
+    line-height: 50%;
+    border: #CCC 1px solid;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #BBB;
+}
